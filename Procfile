@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 alice/
+web: vendor/bin/heroku-php-apache2
