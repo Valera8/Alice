@@ -6,7 +6,7 @@
  * Time: 17:00
  */
 /*Установка внутренней кодировки скрипта*/
-mb_internal_encoding("UTF-8");
+//mb_internal_encoding("UTF-8");
 if (!isset($_REQUEST)) return;
 //Получаем и декодируем уведомление
 $data = json_decode(file_get_contents('php://input'));
