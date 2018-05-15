@@ -15,12 +15,7 @@ $answer = array(
     "response" => array(
         "text" => "",
         "tts" => "",
-        "buttons" => array(
-            "title" => "",
-            "payload" => array(),
-            "url" => "",
-            "hide" => false,
-        ),
+        "buttons" => array(),
     "end_session" => true,
     ),
     "session" => array(
@@ -35,8 +30,15 @@ if (($data->request->original_utterance == 'Алиса запусти работ
 {
     $answer['response']['text'] = 'Здравствуйте! Вот хороший сайт об этом:';
     $answer['response']['tts'] = 'Здравствуйте! Вот хор+оший сайт об этом:';
-    $answer['response']['buttons']['title'] = 'О заработке в интернете';
-    $answer['response']['buttons']['url'] = 'https://dawork.ru/';
-
-    echo json_encode($answer);
+    $answer['response']['buttons'][] = array(
+        'title' => 'О заработке в интернете',
+        'url' => 'https://dawork.ru/',
+    );
 }
+else
+{
+    $answer['response']['text'] = 'Я ещё только учусь!';
+}
+
+header('Content-Type: application/json');
+echo json_encode($answer);
