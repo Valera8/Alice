@@ -5,8 +5,6 @@
  * Date: 08.04.2018
  * Time: 17:00
  */
-/*Установка внутренней кодировки скрипта*/
-//mb_internal_encoding("UTF-8");
 if (!isset($_REQUEST)) return;
 //Получаем и декодируем уведомление
 $data = json_decode(file_get_contents('php://input'));
@@ -26,7 +24,7 @@ $answer = array(
   "version" => $data->version,
 );
 
-if (($data->request->original_utterance == 'Алиса запусти работа в интернете') || ($data->request->original_utterance == 'Алиса запусти заработок в интернете'))
+if (($data->request->original_utterance == 'Запусти работа в интернете') || ($data->request->original_utterance == 'Запусти заработать в интернете') || ($data->request->original_utterance == 'Вызови навык сайты для заработка'))
 {
     $answer['response']['text'] = 'Здравствуйте! Вот хороший сайт об этом:';
     $answer['response']['tts'] = 'Здравствуйте! Вот хор+оший сайт об этом:';
