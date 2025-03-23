@@ -60,7 +60,9 @@ else
         ),
         "version" => $data->version,
     );
-    $opt = $data->request->payload->opt;
+    if (!empty ($data->request->payload)){
+        $opt = $data->request->payload->opt;
+    }
     if ($orig == 'запусти навык выбор заработка в интернете' || $opt == 'pick')
     {
         $answer['response']['text'] = 'Добро пожаловать! Выбери: чем больше всего любишь заниматься и что лучше всего умеешь делать.';
